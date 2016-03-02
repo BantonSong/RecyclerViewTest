@@ -35,8 +35,8 @@ public class MyAdapter extends Adapter<MyAdapter.ViewHolder> {
 		viewHolder.mTextView.setText("我是超人" + arg1);
 		OkHttpClient mOkHttpClient = new OkHttpClient();
 		// 创建一个Request
-		final Request request = new Request.Builder().url("https://github.com/hongyangAndroid")
-				.build();
+		String url = "http://static.adesk.com/wallpaper?imgid=56d2fc1069401b79f1a42a20&reso=720x600";
+		final Request request = new Request.Builder().url(url).build();
 		// new call
 		Call call = mOkHttpClient.newCall(request);
 
@@ -55,12 +55,9 @@ public class MyAdapter extends Adapter<MyAdapter.ViewHolder> {
 
 					@Override
 					public void run() {
-						// TODO Auto-generated method stub
 						updateUI(bitmap, viewHolder.imageView);
 					}
 				});
-//				viewHolder.imageView.setImageBitmap(bitmap);
-//				viewHolder.imageView.setVisibility(View.VISIBLE);
 			}
 		});
 	}
