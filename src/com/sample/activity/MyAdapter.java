@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.Adapter;
@@ -22,11 +21,15 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
 public class MyAdapter extends Adapter<MyAdapter.ViewHolder> {
+	private int count;
+
+	public MyAdapter(int count) {
+		this.count = count;
+	}
 
 	@Override
 	public int getItemCount() {
-		// TODO Auto-generated method stub
-		return 20;
+		return count;
 	}
 
 	@Override
@@ -83,5 +86,13 @@ public class MyAdapter extends Adapter<MyAdapter.ViewHolder> {
 			mTextView = (TextView) itemView.findViewById(R.id.mTextView);
 			imageView = (ImageView) itemView.findViewById(R.id.imageView);
 		}
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 }
